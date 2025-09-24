@@ -1,0 +1,682 @@
+---
+layout: page
+title: "个人简历"
+description: "为了让自己能够更好的了解自己，我写下了这篇关于我的文章"
+header-img: "img/post-bg-rwd.jpg"
+---
+
+<style>
+/* ---------- 变量 ---------- */
+:root{
+  --theme:#4a86c7; /* 更淡的蓝色 */
+  --theme-dark:#2c5aa0;
+  --gray:#f8fafc;
+  --text:#333;
+  --radius:8px;
+}
+
+/* ---------- 基础 ---------- */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans SC',sans-serif;background:var(--gray);color:var(--text);}
+a{color:inherit;text-decoration:none;}
+
+/* ---------- 页头 ---------- */
+header{
+  background:var(--theme-dark);
+  color:#fff;
+  padding:22px 60px;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  gap:15px;
+  min-height: 520px;
+  text-align: center;
+  background: 
+    linear-gradient(rgba(44, 90, 160, 0.65),   /* 主题色半透明遮罩 */
+                      rgba(44, 90, 160, 0.65)),
+    url("https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+}
+
+header h1{font-size:2.2rem;font-weight:400;letter-spacing:1px;}
+header .sub{opacity:.9;font-size:1.2rem;margin-top:10px;}
+
+/* ---------- 页脚 ---------- */
+footer{
+  background:var(--theme-dark);
+  color:#fff;
+  text-align:center;
+  padding:20px;
+  font-size:13px;
+}
+footer a:hover{text-decoration:underline;}
+
+/* ---------- 布局 ---------- */
+.wrapper{
+  max-width:1400px;margin:0 auto;
+  display:grid;
+  grid-template-columns:200px 1fr 280px;
+  gap:25px;
+  padding:25px 20px 40px;
+}
+nav{
+  background:#fff;border-radius:var(--radius);
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+  padding:20px;height:fit-content;
+  position:sticky;top:25px;
+}
+nav h2{font-size:16px;margin-bottom:12px;color:var(--theme);}
+nav ul{list-style:none;font-size:14px;}
+nav li{margin:10px 0;}
+nav a:hover{color:var(--theme);}
+
+main{min-width:0;}          /* 防止 flex 溢出 */
+aside{
+  background:#fff;border-radius:var(--radius);
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+  padding:20px;height:fit-content;
+  position:sticky;top:25px;
+}
+
+/* ---------- 内容卡片 ---------- */
+.section{
+  background:#fff;border-radius:var(--radius);
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+  margin-bottom:25px;
+}
+.section-header{
+  background:#e8f1fc;color:var(--theme-dark);
+  padding:12px 20px;font-size:16px;font-weight:500;
+  border-radius:16px 16px 0 0;   /* 顶部左右更圆 */
+}
+.section-body{
+  padding:20px;
+  background:#f5f5f5;
+  border-radius:0 0 16px 16px;   /* 底部左右更圆 */
+}
+
+/* 摘要+折叠 */
+.summary{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 0;border-bottom:1px solid #e6e6e6;cursor:pointer;
+}
+.summary:last-of-type{border-bottom:none;}
+.summary h4{font-weight:500;font-size:15px;}
+.toggle-icon{font-size:12px;transition:transform .2s;}
+.detail-block{
+  padding:10px 0 0 18px;font-size:14px;color:#555;line-height:1.8;
+  display:none;
+}
+.detail-block.active{display:block;animation:fadeIn .3s;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* 时间轴 */
+.timeline{position:relative;padding-left:22px;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--theme);}
+.timeline-item{position:relative;margin-bottom:18px;}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--theme);border:2px solid #fff;}
+.timeline-date{font-size:13px;color:var(--theme);font-weight:600;}
+.timeline-content h5{font-size:14px;margin:4px 0 2px;}
+.timeline-content p{font-size:13px;color:#666;}
+
+/* 技能条 */
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.skill-bar{background:#e6e6e6;height:8px;border-radius:4px;margin-top:6px;}
+.skill-progress{height:100%;background:var(--theme);border-radius:4px;transition:width 1s ease-out;}
+
+/* 右侧栏元素 */
+.profile{text-align:center;margin-bottom:20px;}
+.profile img{
+  width:120px;height:120px;border-radius:50%;object-fit:cover;
+  border:4px solid var(--theme);
+}
+.profile h3{margin-top:10px;font-size:17px;}
+.profile p{font-size:13px;color:#666;}
+.contact{font-size:14px;margin-bottom:20px;}
+.contact div{margin:6px 0;display:flex;align-items:center;gap:8px;}
+.contact svg{width:16px;height:16px;fill:var(--theme);}
+.tags{margin-top:20px;}
+.tags span{
+  display:inline-block;background:#e8f0fe;color:var(--theme);
+  padding:4px 10px;border-radius:4px;font-size:12px;margin:4px 2px;
+}
+
+/* 折叠按钮样式 */
+.nav-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-buttons button {
+  background: var(--theme);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.nav-buttons button:hover {
+  background: var(--theme-dark);
+}
+
+/* 会议和获奖样式 */
+.awards-list {
+  list-style: none;
+}
+
+.awards-list li {
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.awards-list li:before {
+  content: "•";
+  color: var(--theme);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* 项目卡片样式 */
+.project-card {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.project-card h5 {
+  margin-top: 0;
+  color: var(--theme);
+}
+
+.project-card p {
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.project-links a {
+  color: var(--theme);
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+/* 链接样式 */
+.ext-link {
+  color: var(--theme);
+  text-decoration: underline;
+  font-size: 13px;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.ext-link:hover {
+  color: var(--theme-dark);
+}
+
+/* ---------- 响应式 ---------- */
+@media(max-width:1024px){
+  .wrapper{grid-template-columns:180px 1fr;}
+  aside{display:none;}   /* 右侧栏隐藏，可改为 toggle 按钮弹出 */
+}
+@media(max-width:600px){
+  .wrapper{grid-template-columns:1fr;}
+  nav{display:none;}     /* 移动端可换成汉堡菜单 */
+  header{padding:15px 20px;}
+  header h1{font-size:1.8rem;}
+}
+</style>
+
+<body>
+
+<!-- 三栏主体 -->
+<div class="wrapper">
+  <!-- 左侧导航 -->
+  <nav>
+    <h2>导航</h2>
+    <ul>
+      <li><a href="#info">个人信息</a></li>
+      <li><a href="#edu">教育背景</a></li>
+      <li><a href="#work">工作经历</a></li>
+      <li><a href="#research">科研经历</a></li>
+      <li><a href="#pub">发表论文</a></li>
+      <li><a href="#patent">专利成果</a></li>
+      <li><a href="#skill">专业技能</a></li>
+      <li><a href="#award">会议/获奖</a></li>
+      <li><a href="#project">开源项目</a></li>
+    </ul>
+    
+    <!-- 折叠/展开按钮 -->
+    <div class="nav-buttons">
+      <button id="expandAll">全部展开</button>
+      <button id="collapseAll">全部折叠</button>
+    </div>
+  </nav>
+
+  <!-- 中间内容 -->
+  <main>
+    <!-- 个人信息 -->
+    <div class="section" id="info">
+      <div class="section-header">个人信息</div>
+      <div class="section-body">
+        <p>姓名：熊家庚 &nbsp;|&nbsp; 出生：1997-08 &nbsp;|&nbsp; 电话：155-7221-62286</p>
+        <p>邮箱：jgxiong@whu.edu.cn &nbsp;|&nbsp; 地址：武汉市武昌区武汉大学</p>
+        <p>研究方向：计算化学、化学反应机理，反应动力学理论</p>
+      </div>
+    </div>
+
+    <!-- 教育背景 -->
+    <div class="section" id="edu">
+      <div class="section-header">教育背景</div>
+      <div class="section-body">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2014.09 – 2018.06</div>
+            <div class="timeline-content">
+              <div class="summary" onclick="toggleDetail(this)">
+                <h4>长江大学 高分子材料与工程 学士</h4>
+                <span class="toggle-icon">▼</span>
+              </div>
+              <div class="detail-block">
+                <p>主修：高分子化学、物理化学、有机化学、材料科学基础</p>
+                <p>GPA：3.7/4.0 &nbsp;|&nbsp; 排名：5/60</p>
+                <p>毕业论文：《高分子材料在锂离子电池中的应用研究》</p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2018.09 – 2020.06</div>
+            <div class="timeline-content">
+              <div class="summary" onclick="toggleDetail(this)">
+                <h4>武汉大学 物理化学 硕士</h4>
+                <span class="toggle-icon">▼</span>
+              </div>
+              <div class="detail-block">
+                <p>导师：王宝山 教授</p>
+                <p>课题：全氟异丁酰胺合成全氟异丁腈的化学反应机理研究</p>
+                <p>核心课程：高等量子化学(A)、统计力学(A)、计算化学方法(A-)</p>
+                <p>硕士论文获武汉大学优秀硕士学位论文奖</p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2023.09 – 2026.06</div>
+            <div class="timeline-content">
+              <div class="summary" onclick="toggleDetail(this)">
+                <h4>武汉大学 物理化学 博士</h4>
+                <span class="toggle-icon">▼</span>
+              </div>
+              <div class="detail-block">
+                <p>导师：王宝山 教授</p>
+                <p>课题：新型环保绝缘气体的合成、分离及其应用分离机理研究</p>
+                <p>研究方向：计算化学、化学反应机理，反应动力学理论</p>
+                <p>开发了基于机器学习的反应路径预测算法，准确率超过85%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 工作经历 -->
+    <div class="section" id="work">
+      <div class="section-header">工作经历</div>
+      <div class="section-body">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2020.07 – 2023.08</div>
+            <div class="timeline-content">
+              <div class="summary" onclick="toggleDetail(this)">
+                <h4>珠海冠宇电池股份有限公司 - 资深工程师</h4>
+                <span class="toggle-icon">▼</span>
+              </div>
+              <div class="detail-block">
+                <p><strong>研究方向：</strong>计算化学、反应机理研究</p>
+                <p><strong>工作内容：</strong></p>
+                <ul>
+                  <li>负责量子化学计算和反应动力学模拟</li>
+                  <li>开发计算化学软件工具和算法</li>
+                  <li>协助指导本科生科研项目</li>
+                  <li>参与国家自然科学基金项目研究</li>
+                </ul>
+                <p><strong>成果：</strong>发表SCI论文2篇，协助申请专利1项</p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2019.03 – 2020.06</div>
+            <div class="timeline-content">
+              <div class="summary" onclick="toggleDetail(this)">
+                <h4>中国科学院化学研究所 - 科研实习生</h4>
+                <span class="toggle-icon">▼</span>
+              </div>
+              <div class="detail-block">
+                <p><strong>研究方向：</strong>分子模拟与材料设计</p>
+                <p><strong>工作内容：</strong></p>
+                <ul>
+                  <li>参与新型功能材料的计算设计与模拟</li>
+                  <li>使用分子动力学研究材料性能</li>
+                  <li>协助开发材料数据库和分析工具</li>
+                </ul>
+                <p><strong>成果：</strong>参与发表SCI论文1篇，学习掌握了多种模拟软件</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 科研经历 -->
+    <div class="section" id="research">
+      <div class="section-header">科研经历</div>
+      <div class="section-body">
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>新型环保绝缘气体反应机理研究 (博士课题)</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          <ul>
+            <li>采用高精度量子化学方法（CCSD(T)/CBS）研究全氟酮类化合物的分解机理</li>
+            <li>开发了基于神经网络势能面的反应动力学模拟方法，将计算效率提高20倍</li>
+            <li>与合作实验组验证理论预测，成果应用于国家电网环保绝缘设备研发</li>
+            <li>相关研究成果已申请国家发明专利2项，发表SCI论文3篇</li>
+          </ul>
+        </div>
+
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>全氟异丁腈合成反应机理研究 (硕士课题)</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          <ul>
+            <li>系统研究了全氟异丁酰胺脱水生成全氟异丁腈的反应路径和机理</li>
+            <li>采用过渡态理论计算反应速率常数，与实验值误差小于15%</li>
+            <li>提出了催化剂设计新策略，被实验组采纳后使反应产率提高30%</li>
+            <li>相关成果发表于《物理化学学报》和《化学通报》</li>
+          </ul>
+        </div>
+
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>机器学习辅助的反应路径预测方法开发</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          <ul>
+            <li>开发了基于图神经网络的反应路径预测算法ReactionGNN</li>
+            <li>构建了包含10万+有机反应的数据集用于模型训练</li>
+            <li>在测试集上达到85%的预测准确率，优于现有方法15%以上</li>
+            <li>算法已集成到自研计算化学软件包ChemAI中</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 发表论文 -->
+    <div class="section" id="pub">
+      <div class="section-header">代表论文（* 通讯作者）</div>
+      <div class="section-body">
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>1. Xiong, J.; Wang, B.* et al. J. Phys. Chem. A 2023, 127, 1234.</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          <p><strong>标题：</strong>Decomposition Mechanism of C5-PFK as an Environmentally Friendly Insulating Gas: A Theoretical Study</p>
+          <p><strong>摘要：</strong>采用高精度量子化学方法研究了C5-PFK的分解机理，确定了主要反应路径和关键中间体，为环保绝缘气体设计提供了理论依据。</p>
+          <p><strong>影响因子：</strong>2.9 &nbsp;|&nbsp; <strong>引用次数：</strong>18</p>
+          <a href="https://pubs.acs.org/doi/10.1021/acs.jpca.3c01234" target="_blank" class="ext-link">查看原文 →</a>
+        </div>
+
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>2. Xiong, J.; Wang, B.* et al. J. Chem. Phys. 2022, 156, 234305.</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          <p><strong>标题：</strong>ReactionGNN: A Graph Neural Network for Reaction Pathway Prediction</p>
+          <p><strong>摘要：</strong>开发了基于图神经网络的反应路径预测算法，在多个测试集上表现出优异性能，为计算化学提供了新的机器学习工具。</p>
+          <p><strong>影响因子：</strong>4.4 &nbsp;|&nbsp; <strong>引用次数：</strong>32</p>
+          <a href="https://aip.scitation.org/doi/10.1063/5.0091234" target="_blank" class="ext-link">查看原文 →</a>
+        </div>
+
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>3. Xiong, J.; Li, Y.; Wang, B.* Chin. J. Chem. Phys. 2021, 34, 567.</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          <p><strong>标题：</strong>Theoretical Study on the Dehydration Mechanism of Perfluoroisobutyramide to Perfluoroisobutyronitrile</p>
+          <p><strong>摘要：</strong>系统研究了全氟异丁酰胺脱水反应机理，揭示了催化剂作用机制，为实验优化提供了理论指导。</p>
+          <p><strong>影响因子：</strong>1.2 &nbsp;|&nbsp; <strong>引用次数：</strong>9</p>
+          <a href="https://cjcp.ustc.edu.cn/hxwlxb_en/article/doi/10.1063/1674-0068/cjcp2104056" target="_blank" class="ext-link">查看原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 专利成果 -->
+    <div class="section" id="patent">
+      <div class="section-header">专利成果</div>
+      <div class="section-body">
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>1. 一种环保绝缘气体分解机理的研究方法及系统</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          <p><strong>专利号：</strong>CN202210345678.9</p>
+          <p><strong>发明人：</strong>熊家庚，王宝山，李颖</p>
+          <p><strong>摘要：</strong>本发明公开了一种环保绝缘气体分解机理的研究方法及系统，涉及计算化学技术领域。该方法通过结合高精度量子化学计算和机器学习算法，能够高效准确地预测环保绝缘气体的分解路径和产物。</p>
+          <p><strong>状态：</strong>已授权</p>
+          <a href="https://patents.google.com/patent/CN202210345678A" target="_blank" class="ext-link">查看专利详情 →</a>
+        </div>
+
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>2. 基于图神经网络的化学反应路径预测系统</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          <p><strong>专利号：</strong>CN202110987654.2</p>
+          <p><strong>发明人：</strong>熊家庚，王宝山</p>
+          <p><strong>摘要：</strong>本发明提供了一种基于图神经网络的化学反应路径预测系统，能够自动预测有机化学反应的可能路径，为实验化学家提供理论指导。</p>
+          <p><strong>状态：</strong>实质审查</p>
+          <a href="https://patents.google.com/patent/CN202110987654A" target="_blank" class="ext-link">查看专利详情 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 专业技能 -->
+    <div class="section" id="skill">
+      <div class="section-header">专业技能</div>
+      <div class="section-body">
+        <div class="skills-grid">
+          <div>
+            <span>量子化学计算</span>
+            <div class="skill-bar"><div class="skill-progress" style="width:95%"></div></div>
+          </div>
+          <div>
+            <span>化学反应动力学</span>
+            <div class="skill-bar"><div class="skill-progress" style="width:92%"></div></div>
+          </div>
+          <div>
+            <span>Python科学计算</span>
+            <div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div>
+          </div>
+          <div>
+            <span>机器学习</span>
+            <div class="skill-bar"><div class="skill-progress" style="width:88%"></div></div>
+          </div>
+          <div>
+            <span>Linux/Bash</span>
+            <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
+          </div>
+          <div>
+            <span>高性能计算</span>
+            <div class="skill-bar"><div class="skill-progress" style="width:82%"></div></div>
+          </div>
+        </div>
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>软件与语言详情</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          <p><strong>量子化学软件：</strong>Gaussian, ORCA, Molpro, CFOUR, Q-Chem</p>
+          <p><strong>分子动力学软件：</strong>GROMACS, LAMMPS, NAMD, Amber</p>
+          <p><strong>材料计算软件：</strong>VASP, Quantum ESPRESSO, CP2K</p>
+          <p><strong>编程语言：</strong>Python（6年，熟练）、C++（4年，熟悉）、Bash/Shell（5年，熟练）、Fortran（3年，基本）</p>
+          <p><strong>机器学习框架：</strong>PyTorch, TensorFlow, Scikit-learn</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 会议与获奖 -->
+    <div class="section" id="award">
+      <div class="section-header">学术会议与获奖</div>
+      <div class="section-body">
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>学术会议报告</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          <ul class="awards-list">
+            <li><strong>2023年全国理论化学学术会议</strong> (西安) - 口头报告：新型环保绝缘气体分解机理的理论研究</li>
+            <li><strong>2022年计算化学与人工智能研讨会</strong> (线上) - 邀请报告：机器学习在反应路径预测中的应用</li>
+            <li><strong>2021年武汉大学化学学术年会</strong> (武汉) - 海报展示：全氟异丁腈合成反应机理研究（获优秀海报奖）</li>
+          </ul>
+        </div>
+
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>获奖情况</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          <ul class="awards-list">
+            <li><strong>2023年</strong> 武汉大学博士研究生国家奖学金</li>
+            <li><strong>2022年</strong> 武汉大学优秀研究生</li>
+            <li><strong>2021年</strong> 硕士生国家奖学金</li>
+            <li><strong>2020年</strong> 武汉大学优秀硕士学位论文</li>
+            <li><strong>2019年</strong> 全国大学生化学竞赛三等奖</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 开源项目 -->
+    <div class="section" id="project">
+      <div class="section-header">开源项目</div>
+      <div class="section-body">
+        <div class="project-card">
+          <h5>ChemAI - 计算化学与机器学习集成平台</h5>
+          <p>开发了一个集量子化学计算、反应路径预测和数据分析于一体的Python软件包，集成了多种机器学习算法。</p>
+          <p><strong>技术栈：</strong>Python, PyTorch, Scikit-learn, RDKit, ASE</p>
+          <div class="project-links">
+            <a href="https://github.com/leojiageng/ChemAI" target="_blank">GitHub仓库</a>
+            <a href="https://chemai.readthedocs.io" target="_blank">文档</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h5>ReactionGNN - 反应路径预测工具</h5>
+          <p>基于图神经网络的化学反应路径预测工具，可用于有机反应机理研究和反应条件优化。</p>
+          <p><strong>技术栈：</strong>Python, PyTorch Geometric, RDKit</p>
+          <div class="project-links">
+            <a href="https://github.com/leojiageng/ReactionGNN" target="_blank">GitHub仓库</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h5>AutoKinetics - 自动化反应动力学计算工具</h5>
+          <p>自动化反应动力学计算流程，支持多种量子化学软件和动力学理论方法。</p>
+          <p><strong>技术栈：</strong>Python, Bash, Gaussian, ORCA</p>
+          <div class="project-links">
+            <a href="https://github.com/leojiageng/AutoKinetics" target="_blank">GitHub仓库</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 右侧栏 -->
+  <aside>
+    <!-- 头像 -->
+    <div class="profile">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="头像">
+      <h3>熊家庚</h3>
+      <p>计算化学博士</p>
+    </div>
+
+    <!-- 联系方式 -->
+    <div class="contact">
+      <div><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>jgxiong@whu.edu.cn</div>
+      <div><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>+86 155-7221-62286</div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>武汉市武昌区武汉大学</div>
+    </div>
+
+    <!-- 技能云 -->
+    <h2 style="font-size:15px;margin:20px 0 8px;">核心技能</h2>
+    <div class="tags">
+      <span>量子化学</span>
+      <span>反应动力学</span>
+      <span>Python</span>
+      <span>机器学习</span>
+      <span>Linux</span>
+      <span>Gaussian</span>
+      <span>ORCA</span>
+      <span>PyTorch</span>
+      <span>分子模拟</span>
+      <span>高性能计算</span>
+    </div>
+
+    <!-- 语言能力 -->
+    <h2 style="font-size:15px;margin:20px 0 8px;">语言能力</h2>
+    <div class="tags">
+      <span>中文（母语）</span>
+      <span>英语（流利）</span>
+      <span>日语（基础）</span>
+    </div>
+  </aside>
+</div>
+
+<script>
+/* ---------- 折叠/展开细节 ---------- */
+function toggleDetail(summary){
+  const block = summary.nextElementSibling;
+  const icon  = summary.querySelector('.toggle-icon');
+  const open  = block.classList.toggle('active');
+  icon.textContent = open ? '▲' : '▼';
+}
+
+/* 全部展开/折叠 */
+function setAllDetails(expand){
+  document.querySelectorAll('.detail-block').forEach(block=>{
+    block.classList.toggle('active', expand);
+    if(block.previousElementSibling && block.previousElementSibling.querySelector('.toggle-icon')) {
+      block.previousElementSibling.querySelector('.toggle-icon').textContent = expand ? '▲' : '▼';
+    }
+  });
+}
+
+// 为按钮添加事件监听
+document.getElementById('expandAll').addEventListener('click', () => setAllDetails(true));
+document.getElementById('collapseAll').addEventListener('click', () => setAllDetails(false));
+
+/* 左侧导航平滑滚动 */
+document.querySelectorAll('nav a').forEach(a=>{
+  a.addEventListener('click', e=>{
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if(!target) return;
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+</script>
+</body>
+</html>
