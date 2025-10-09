@@ -30,8 +30,16 @@ header-img: img/post-bg-rwd.jpg
 .detail-block{padding:10px 0 0 18px;font-size:14px;color:#555;line-height:1.8;display:none;}
 .detail-block.active{display:block;animation:fadeIn .3s;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-</style>
 
+</style>
+<!-- Language Selector -->
+<select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+  <option value="0" selected> 中文 Chinese </option>
+  <option value="1"> 英文 English </option>
+</select>
+
+<!-- 中文版 -->
+<div class="zh post-container">
 <!-- 个人信息 -->
 <h2 id="info">个人信息</h2>
 <ul>
@@ -53,7 +61,7 @@ header-img: img/post-bg-rwd.jpg
       <div class="detail-block">
         导师：王宝山 教授<br>
         课题：新型环保绝缘气体的合成、分离及其应用分离机理研究<br>
-        开发了基于机器学习的反应路径预测算法，准确率超过85%。
+        负责量子化学计算和反应动力学模拟；开发计算化学软件工具和算法；发表SCI论文2篇，协助申请专利1项
       </div>
     </div>
   </div>
@@ -83,7 +91,7 @@ header-img: img/post-bg-rwd.jpg
       <div class="detail-block">
         主修：高分子化学、物理化学、有机化学、材料科学基础<br>
         GPA：3.7/4.0 | 排名：5/60<br>
-        毕业论文：《高分子材料在锂离子电池中的应用研究》
+        毕业论文：《高压实密度磷酸铁锂正极材料研究》
       </div>
     </div>
   </div>
@@ -100,7 +108,7 @@ header-img: img/post-bg-rwd.jpg
         <span class="toggle-icon">▼</span>
       </div>
       <div class="detail-block">
-        负责量子化学计算和反应动力学模拟；开发计算化学软件工具和算法；发表SCI论文2篇，协助申请专利1项。
+        负责锂离子电池后端新工艺开发：串联化成技术、单折边点胶工艺；申请专利4项，其中国际专利1项。
       </div>
     </div>
   </div>
@@ -109,7 +117,7 @@ header-img: img/post-bg-rwd.jpg
     <div class="timeline-date">2019.03 – 2020.06</div>
     <div class="timeline-content">
       <div class="summary" onclick="toggleDetail(this)">
-        <h4>中国科学院化学研究所 – 科研实习生</h4>
+        <h4>华为技术有限公司 – 嵌入式C软件程序员</h4>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="detail-block">
@@ -176,9 +184,9 @@ header-img: img/post-bg-rwd.jpg
 <h2 id="skill">专业技能</h2>
 <ul>
   <li>量子化学软件：Gaussian / ORCA / Molpro / VASP</li>
-  <li>编程：Python（6 年）、C++（4 年）、Bash（5 年）</li>
+  <li>编程：Python（7 年）、C（5 年）、Shell（3 年）、Bash（3 年）</li>
   <li>机器学习：PyTorch、TensorFlow、Scikit-learn</li>
-  <li>语言：中文（母语）、英语（流利）、日语（基础）</li>
+  <li>语言：中文（母语）、英语（流利）、法语（基础）</li>
 </ul>
 
 <h2 id="award">会议/获奖</h2>
@@ -195,6 +203,214 @@ header-img: img/post-bg-rwd.jpg
   <li><a href="https://github.com/leojiageng/ReactionGNN" target="_blank">ReactionGNN</a> – 反应路径预测工具</li>
   <li><a href="https://github.com/leojiageng/AutoKinetics" target="_blank">AutoKinetics</a> – 自动化反应动力学计算工具</li>
 </ul>
+</div>
+
+<!-- English Version -->
+<div class="en post-container"">
+  <!-- 个人信息 -->
+  <h2 id="info">Information</h2>
+  <ul>
+    <li>Name: Xiong JiaGeng | Birthday：1997-08 | Tel：155-7221-62286</li>
+    <li>Email: jgxiong@whu.edu.cn | Address：Wuhan University, Wuhan, Hubei, China</li>
+    <li>Research Interest: Computational Chemistry, Chemical Reaction Mechanism, Reaction Mechanics</li>
+  </ul>
+  
+  <!-- 教育背景 -->
+  <h2 id="edu">Education</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">2023.09 – 2026.06</div>
+      <div class="timeline-content">
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>Wuhan University, Physicochemistry, Ph.D.</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          Supervisor: Prof. Wang Baoyan<br>
+          Research Topic: The mechanism of synthesis and separation of new environmental halogen gas<br>
+          负责量子化学计算和反应动力学模拟；开发计算化学软件工具和算法；发表SCI论文2篇，协助申请专利1项
+        </div>
+      </div>
+    </div>
+  
+    <div class="timeline-item">
+      <div class="timeline-date">2018.09 – 2020.06</div>
+      <div class="timeline-content">
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>武汉大学 物理化学 硕士</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          导师：王宝山 教授<br>
+          课题：全氟异丁酰胺合成全氟异丁腈的化学反应机理研究<br>
+          硕士论文获武汉大学优秀硕士学位论文奖。
+        </div>
+      </div>
+    </div>
+  
+    <div class="timeline-item">
+      <div class="timeline-date">2014.09 – 2018.06</div>
+      <div class="timeline-content">
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>长江大学 高分子材料与工程 学士</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          主修：高分子化学、物理化学、有机化学、材料科学基础<br>
+          GPA：3.7/4.0 | 排名：5/60<br>
+          毕业论文：《高压实密度磷酸铁锂正极材料研究》
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 工作经历 -->
+  <h2 id="work">工作经历</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">2020.07 – 2023.08</div>
+      <div class="timeline-content">
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>珠海冠宇电池股份有限公司 – 资深工程师</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          负责锂离子电池后端新工艺开发：串联化成技术、单折边点胶工艺；申请专利4项，其中国际专利1项。
+        </div>
+      </div>
+    </div>
+  
+    <div class="timeline-item">
+      <div class="timeline-date">2019.03 – 2020.06</div>
+      <div class="timeline-content">
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>华为技术有限公司 – 嵌入式C软件程序员</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          参与新型功能材料的计算设计与模拟；使用分子动力学研究材料性能；参与发表SCI论文1篇。
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 科研经历 -->
+  <h2 id="research">科研经历</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>新型环保绝缘气体反应机理研究（博士课题）</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          采用CCSD(T)/CBS高精度方法研究全氟酮类分解机理；开发神经网络势能面动力学模拟，计算效率提升20倍；成果已申请国家发明专利2项，发表SCI论文3篇。
+        </div>
+      </div>
+    </div>
+  
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>全氟异丁腈合成反应机理研究（硕士课题）</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          系统研究全氟异丁酰胺脱水反应路径；采用过渡态理论计算速率常数，误差&lt;15%；提出催化剂设计新策略，实验产率提高30%。
+        </div>
+      </div>
+    </div>
+  
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <div class="summary" onclick="toggleDetail(this)">
+          <h4>机器学习辅助的反应路径预测方法开发</h4>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="detail-block">
+          开发图神经网络算法ReactionGNN，构建10万+有机反应数据集，预测准确率85%，已集成至自研软件ChemAI。
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 论文 / 专利 / 技能 / 获奖 / 开源项目 -->
+  <h2 id="pub">代表论文</h2>
+  <ol>
+    <li>Xiong, J.; Wang, B.* et al. <em>J. Phys. Chem. A</em> <strong>2023</strong>, 127, 1234.</li>
+    <li>Xiong, J.; Wang, B.* et al. <em>J. Chem. Phys.</em> <strong>2022</strong>, 156, 234305.</li>
+    <li>Xiong, J.; Li, Y.; Wang, B.* <em>Chin. J. Chem. Phys.</em> <strong>2021</strong>, 34, 567.</li>
+  </ol>
+  
+  <h2 id="patent">专利成果</h2>
+  <ol>
+    <li>一种环保绝缘气体分解机理的研究方法及系统（已授权）</li>
+    <li>基于图神经网络的化学反应路径预测系统（实审）</li>
+  </ol>
+  
+  <h2 id="skill">专业技能</h2>
+  <ul>
+    <li>量子化学软件：Gaussian / ORCA / Molpro / VASP</li>
+    <li>编程：Python（7 年）、C（5 年）、Shell（3 年）、Bash（3 年）</li>
+    <li>机器学习：PyTorch、TensorFlow、Scikit-learn</li>
+    <li>语言：中文（母语）、英语（流利）、法语（基础）</li>
+  </ul>
+  
+  <h2 id="award">会议/获奖</h2>
+  <ul>
+    <li>2023 博士研究生国家奖学金</li>
+    <li>2022 武汉大学优秀研究生</li>
+    <li>2021 硕士生国家奖学金</li>
+    <li>2020 武汉大学优秀硕士学位论文</li>
+  </ul>
+  
+  <h2 id="project">开源项目</h2>
+  <ul>
+    <li><a href="https://github.com/leojiageng/ChemAI" target="_blank">ChemAI</a> – 计算化学与机器学习集成平台</li>
+    <li><a href="https://github.com/leojiageng/ReactionGNN" target="_blank">ReactionGNN</a> – 反应路径预测工具</li>
+    <li><a href="https://github.com/leojiageng/AutoKinetics" target="_blank">AutoKinetics</a> – 自动化反应动力学计算工具</li>
+  </ul>
+  </div>
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+  // get nodes
+  var $zh = document.querySelector(".zh");
+  var $en = document.querySelector(".en");
+  var $select = document.querySelector("select");
+
+  // bind hashchange event
+  window.addEventListener('hashchange', _render);
+
+  // handle render
+  function _render(){
+      var _hash = window.location.hash;
+      // en
+      if(_hash == "#en"){
+          $select.selectedIndex = 1;
+          $en.style.display = "block";
+          $zh.style.display = "none";
+      // zh by default
+      }else{
+          // not trigger onChange, otherwise cause a loop call.
+          $select.selectedIndex = 0;
+          $zh.style.display = "block";
+          $en.style.display = "none";
+      }
+  }
+
+  // handle select change
+  function onLanChange(index){
+      if(index == 0){
+          window.location.hash = "#zh"
+      }else{
+          window.location.hash = "#en"
+      }
+  }
+
+  // init
+  _render();
+</script>  
 
 <!-- 折叠/展开 + 全部展开/折叠 JS -->
 <script>
