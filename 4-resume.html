@@ -7,7 +7,7 @@ header-img: img/post-bg-rwd.jpg
 
 <!-- Style -->
 <style>
-/* ---------- 时间轴 ---------- */
+/* ---------- Timeline ---------- */
 .timeline{position:relative;padding-left:22px;margin:10px 0 20px;}
 .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#4a86c7;}
 .timeline-item{position:relative;margin-bottom:20px;}
@@ -16,7 +16,7 @@ header-img: img/post-bg-rwd.jpg
 .timeline-content h4{font-size:15px;margin:4px 0 2px;}
 .timeline-content p{font-size:13px;color:#666;margin:0;}
 
-/* ---------- 折叠 ---------- */
+/* ---------- Expand ---------- */
 .summary{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e6e6e6;cursor:pointer;}
 .summary:last-of-type{border-bottom:none;}
 .summary h4{font-weight:500;font-size:15px;margin:0;}
@@ -24,6 +24,14 @@ header-img: img/post-bg-rwd.jpg
 .detail-block{padding:10px 0 0 18px;font-size:14px;color:#555;line-height:1.8;display:none;}
 .detail-block.active{display:block;animation:fadeIn .3s;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ---------- List ---------- */
+ul {margin-block: 0;}
+ul li {margin-bottom: 6px;}
+ul li:last-child {margin-bottom: 0;}
+ol {margin-block: 0;}
+ol li {margin-bottom: 6px}
+ol li:last-child {margin-bottom: 0;}
 
 </style>
 
@@ -35,34 +43,37 @@ header-img: img/post-bg-rwd.jpg
 
 <!-- Chinese Version -->
 <div class="zh post-container">
-<!-- 仿制 3-about 的按钮条 -->
+
 <div class="lang-selector text-center" style="margin-bottom:25px">
   <button class="btn btn-sm btn-outline-primary" id="expandAll">全部展开 ▼</button>
-  <button class="btn btn-sm btn-outline-primary" id="collapseAll">全部折叠 ▶</button>
+  <button class="btn btn-sm btn-outline-primary" id="collapseAll">全部折叠 ▲</button>
 </div>
 
-  <!-- 个人信息 -->
-<h2 id="info">个人信息</h2>
+<h2 id="info">基本信息</h2>
 <ul>
-  <li>姓名：熊家庚 | 出生：1997-08 | 电话：155-7221-62286</li>
+  <li>姓名：熊家庚 | 出生：1997-08 | 电话：+86-155-7221-6886</li>
   <li>邮箱：jgxiong@whu.edu.cn | 地址：武汉市武昌区武汉大学</li>
-  <li>研究方向：计算化学、化学反应机理，反应动力学理论</li>
+  <li>研究方向：量子化学、化学反应机理、反应动力学理论、蒙特卡洛模拟、计算化学等</li>
+  <li>研究领域：锂离子电池、沸石分子筛、推进剂相容性、AlLi合金、环保绝缘气体等领域</li>
+  <li>个人特点：热爱科研、喜欢编程、喜欢分享</li>
 </ul>
 
-<!-- 教育背景 -->
 <h2 id="edu">教育背景</h2>
 <div class="timeline">
   <div class="timeline-item">
     <div class="timeline-date">2023.09 – 2026.06</div>
     <div class="timeline-content">
       <div class="summary" onclick="toggleDetail(this)">
-        <h4>武汉大学 物理化学 博士</h4>
+        <h4>武汉大学 物理化学 理科博士</h4>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="detail-block">
         导师：王宝山 教授<br>
-        课题：新型环保绝缘气体的合成、分离及其应用分离机理研究<br>
-        负责量子化学计算和反应动力学模拟；开发计算化学软件工具和算法；发表SCI论文2篇，协助申请专利1项
+        课题1：新型环保绝缘气体的合成、分离及其应用分离机理研究<br>
+        课题2：构建新型环保绝缘气体LD/DC/AC电压与静电势参数的神经网络模型<br>
+        课题3：固体推进剂组分相容性机理研究<br>
+        课题4：AlLi合金团簇结构及其氧化机理研究<br>
+        负责量子化学计算和反应动力学模拟；计算化学软件后处理工具和算法开发；预计发表SCI论文5篇，已发1篇
       </div>
     </div>
   </div>
@@ -71,13 +82,14 @@ header-img: img/post-bg-rwd.jpg
     <div class="timeline-date">2018.09 – 2020.06</div>
     <div class="timeline-content">
       <div class="summary" onclick="toggleDetail(this)">
-        <h4>武汉大学 物理化学 硕士</h4>
+        <h4>武汉大学 化学工程 工科硕士</h4>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="detail-block">
         导师：王宝山 教授<br>
-        课题：全氟异丁酰胺合成全氟异丁腈的化学反应机理研究<br>
-        硕士论文获武汉大学优秀硕士学位论文奖。
+        课题1：全氟异丁酰胺（i-C3F7CONH2）合成全氟异丁腈（i-C3F7CN）的反应机理的理论研究<br>
+        课题2：全氟异丁腈与GSH酶的反应机理的理论研究<br>
+        负责量子化学计算和反应动力学模拟
       </div>
     </div>
   </div>
@@ -86,297 +98,423 @@ header-img: img/post-bg-rwd.jpg
     <div class="timeline-date">2014.09 – 2018.06</div>
     <div class="timeline-content">
       <div class="summary" onclick="toggleDetail(this)">
-        <h4>长江大学 高分子材料与工程 学士</h4>
+        <h4>长江大学 高分子材料与工程 工科学士</h4>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="detail-block">
-        主修：高分子化学、物理化学、有机化学、材料科学基础<br>
-        GPA：3.7/4.0 | 排名：5/60<br>
+        主修：高分子化学、物理化学、有机化学、C语言编程<br>
+        GPA：3.7/4.0 | 排名：1/60<br>
         毕业论文：《高压实密度磷酸铁锂正极材料研究》
       </div>
     </div>
   </div>
 </div>
 
-<!-- 工作经历 -->
+<h2 id="research">科研经历</h2>
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4>国家重点研发计划“新型环保绝缘气体分子结构与理化特性研究”（中国电科院）-（博士课题）</h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        1、采用M062X/6-311++G(d,p)和CBS-QB3理论水平，研究合成三氟甲基磺酰氟（CF3SO2F）的理论反应机理<br>
+        2、采用GEMC方法研究不同孔径沸石分离全氟正丁腈和异丁腈的理论机理<br>
+        3、采用GEMC方法研究LTA-3/4/5A和FAU-13X分子筛吸附CF3SO2F/N2混合气体放电后杂质的理论机理<br>
+        4、开发Matlab神经网络势超参优化器和交叉验证工具，构建新型环保绝缘气体LD/DC/AC电压与静电势参数的神经网络模型<br>
+        5、开发蒙特卡洛模拟工具计算分子动力学半径Dk，研究分子筛吸附机理
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4>稳定项目支持计划“推进剂组分相容性/AlLi合金”（航天科工集团六院）-（博士课题）</h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        1、采用DFT方法推研究进剂组分固体填料、粘合剂、键合剂、增塑剂、固化剂之间两、三、四组分相容性<br>
+        2、采用量子化学计算单组分分解计算分解温度，采用COMPASS力场和模拟退火方法模拟计算玻璃化转变温度（Tg）溶度参数<br> 
+        3、采用DFT方法研究不同Li质量（1~10%）比率AlLi合金的团簇结构及其与H2O/LiOH/Li2O的氧化机理<br>
+        4、采用MD方法模拟硅烷缩合剂包覆AlLi合金团簇表面的结构和功能<br>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4>国家重点研发计划“环保型管道输电关键技术”（中国电科院）-（硕士课题）</h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        1、采用M062X/6-311++G(d,p)、b3lyp、wb97x-d和DL-CBS-QB3研究全氟异丁酰胺和Py和TFAA在DMF溶液中合成全氟异丁腈的反应机理<br>
+        2、采用QM/MM方法研究全氟乙腈/丙腈/正丁腈/异丁腈与GSH酶的反应机理的理论研究
+      </div>
+    </div>
+  </div>
+</div>
+
 <h2 id="work">工作经历</h2>
 <div class="timeline">
   <div class="timeline-item">
-    <div class="timeline-date">2020.07 – 2023.08</div>
+    <div class="timeline-date">2020.07 – 2022.08</div>
     <div class="timeline-content">
       <div class="summary" onclick="toggleDetail(this)">
         <h4>珠海冠宇电池股份有限公司 – 资深工程师</h4>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="detail-block">
-        负责锂离子电池后端新工艺开发：串联化成技术、单折边点胶工艺；申请专利4项，其中国际专利1项。
+        负责锂离子电池后端新工艺开发：封装、化成、二封、点胶、分选、OCV和包装工序<br>
+        负责新工艺开发：电磁热封装、激光封装，串联化成，离心二封，单折边UV点胶以及免分选工艺等<br>
+        熟练掌握锂电池的整个制备工序，包括纽扣电池、消费类软包电池以及动力电池<br>
+        申请专利4项，参与专利10项，其中申请国际专利1项
       </div>
     </div>
   </div>
 
   <div class="timeline-item">
-    <div class="timeline-date">2019.03 – 2020.06</div>
+    <div class="timeline-date">2022.11 – 2023.08</div>
     <div class="timeline-content">
       <div class="summary" onclick="toggleDetail(this)">
         <h4>华为技术有限公司 – 嵌入式C软件程序员</h4>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="detail-block">
-        参与新型功能材料的计算设计与模拟；使用分子动力学研究材料性能；参与发表SCI论文1篇。
+        负责嵌入式设备的通信模块设计与开发，基于GD32和STM32系列MCU，使用IAR Embedded Workbench进行开发，参与多个涉及Modbus协议与自研通信协议的项目<br>
+        独立完成底层驱动适配，涵盖USART、SPI、I2C、ADC、定时器、Flash、看门狗等模块<br>
+        实现一套自研通信协议，采用帧头+长度+命令+数据+校验的结构，支持变长数据帧与双向通信
       </div>
     </div>
   </div>
 </div>
 
-<!-- 科研经历 -->
-<h2 id="research">科研经历</h2>
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <div class="summary" onclick="toggleDetail(this)">
-        <h4>新型环保绝缘气体反应机理研究（博士课题）</h4>
-        <span class="toggle-icon">▼</span>
-      </div>
-      <div class="detail-block">
-        采用CCSD(T)/CBS高精度方法研究全氟酮类分解机理；开发神经网络势能面动力学模拟，计算效率提升20倍；成果已申请国家发明专利2项，发表SCI论文3篇。
-      </div>
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <div class="summary" onclick="toggleDetail(this)">
-        <h4>全氟异丁腈合成反应机理研究（硕士课题）</h4>
-        <span class="toggle-icon">▼</span>
-      </div>
-      <div class="detail-block">
-        系统研究全氟异丁酰胺脱水反应路径；采用过渡态理论计算速率常数，误差&lt;15%；提出催化剂设计新策略，实验产率提高30%。
-      </div>
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <div class="summary" onclick="toggleDetail(this)">
-        <h4>机器学习辅助的反应路径预测方法开发</h4>
-        <span class="toggle-icon">▼</span>
-      </div>
-      <div class="detail-block">
-        开发图神经网络算法ReactionGNN，构建10万+有机反应数据集，预测准确率85%，已集成至自研软件ChemAI。
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 论文 / 专利 / 技能 / 获奖 / 开源项目 -->
 <h2 id="pub">代表论文</h2>
 <ol>
-  <li>Xiong, J.; Wang, B.* et al. <em>J. Phys. Chem. A</em> <strong>2023</strong>, 127, 1234.</li>
-  <li>Xiong, J.; Wang, B.* et al. <em>J. Chem. Phys.</em> <strong>2022</strong>, 156, 234305.</li>
-  <li>Xiong, J.; Li, Y.; Wang, B.* <em>Chin. J. Chem. Phys.</em> <strong>2021</strong>, 34, 567.</li>
+  <li>Xiong, J.; Wang, B.* et al. <em>Molecules</em> <strong>2024</strong>, 127, 1234.</li>
+  <li>Liu, W.; Song, Y.; Zhang, M.; Xiong, J.; et al. <em>International Journal of Quantum Chemistry</em> <strong>2024</strong>, 156, 234305.</li>
+  <li>Liu, Y.; Zhong, Z.; Yu, X.; Xiong, J; Liu, S. <em>Molecular Catalysis</em> <strong>2024</strong>, 34, 567.</li>
 </ol>
 
 <h2 id="patent">专利成果</h2>
 <ol>
-  <li>一种环保绝缘气体分解机理的研究方法及系统（已授权）</li>
-  <li>基于图神经网络的化学反应路径预测系统（实审）</li>
+  <li>熊家庚，林泳涛，陈申，等。一种耐高压纽扣电池顶盖设计[P]. WO2023186049A1(国际专利)</li>
+  <li>熊家庚，袁文兵，何伊，等。一种电池和电子产品[P]. CN202123034558.6</li>
+  <li>熊家庚，林泳涛，陈申，等。一种安全泄压纽扣电池顶盖设计[P]. CN202220736851.2</li>
+  <li>··· ···</li>
 </ol>
 
 <h2 id="skill">专业技能</h2>
 <ul>
-  <li>量子化学软件：Gaussian / ORCA / Molpro / VASP</li>
-  <li>编程：Python（7 年）、C（5 年）、Shell（3 年）、Bash（3 年）</li>
-  <li>机器学习：PyTorch、TensorFlow、Scikit-learn</li>
-  <li>语言：中文（母语）、英语（流利）、法语（基础）</li>
+  <li>量化软件：Gaussian / Gromacs / Material Studio / ADF / ORCA / Molpro  </li>
+  <li>编程语言：Python（7 年）、C（5 年）、Shell（3 年）、Bash（3 年）、Matlab（3 年）</li>
+  <li>机器学习：PyTorch、Neural Network、Scikit-learn</li>
+  <li>工程能力：六西格玛管理工具及其理论和TRIZ理论</li>
+  <li>语言能力：中文（母语）、英语CET-4/6，IELTS:6（流利）</li>
 </ul>
 
 <h2 id="award">会议/获奖</h2>
 <ul>
-  <li>2023 博士研究生国家奖学金</li>
-  <li>2022 武汉大学优秀研究生</li>
-  <li>2021 硕士生国家奖学金</li>
-  <li>2020 武汉大学优秀硕士学位论文</li>
+  <li>2024 学业二等奖学金</li>
+  <li>2023 TRIZ一级证书</li>
+  <li>2021 冠宇之星荣誉称号</li>
+  <li>2018 国家励志奖学金</li>
 </ul>
 
 <h2 id="project">开源项目</h2>
-<ul>
-  <li><a href="https://github.com/leojiageng/ChemAI" target="_blank">ChemAI</a> – 计算化学与机器学习集成平台</li>
-  <li><a href="https://github.com/leojiageng/ReactionGNN" target="_blank">ReactionGNN</a> – 反应路径预测工具</li>
-  <li><a href="https://github.com/leojiageng/AutoKinetics" target="_blank">AutoKinetics</a> – 自动化反应动力学计算工具</li>
-</ul>
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4><strong>量子化学小工具</strong>：用于处理量化计算结果/生成量化输入文件的小工具 - 
+          <a href="https://github.com/LeoJiaGeng/JiaGengXiong-Python-Files" target="_blank">点击查看（旧版本）</a>
+          <a href="https://github.com/LeoJiaGeng/Quantum_Toolkit" target="_blank">点击查看（新版本）</a>
+        </h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        基于Pyqt5的量子化学小工具，包括提取Gaussian输出文件所有信息，监测本征向量，批量生成输入文件和更改文件名字等功能，还具有双语界面<br>
+        建立一套Qt Designer GUI -> UI.ui -> UI.py + 业务.py的代码开发流程，提升开发效率<br>
+        编写转换流程和打包压缩Batch文件，方便用户使用
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4><strong>神经网络超参优化/交叉验证</strong>：用于超参数优化的神经网络模型/留N法和蒙特卡洛交叉验证方法 - 
+          <a href="https://github.com/LeoJiaGeng/Matlab_NNtrain" target="_blank">点击查看</a>
+        </h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        构建基于Matlab的Neural Network神经网络的超参优化器<br>
+        实现基于蒙特卡洛交叉和留N法验证的超参优化器<br>
+        优化器支持多种目标函数，包括RMSE、MAE、R2等<br>
+        优化器支持多种超参优化策略，包括网格搜索、随机搜索等
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4><strong>脚本小工具</strong>：Bash、Shell、Python、Perl等脚本小工具 - 
+          <a href="https://github.com/LeoJiaGeng/WH_Univ_N202" target="_blank">点击查看</a>
+        </h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        用于Python打包压缩的Bash脚本<br>
+        用于提交任务监测过渡态的Shell脚本<br>
+        用于提交Material Studio批量任务并生成报告的Perl脚本
+      </div>
+    </div>
+  </div>
 </div>
+
+</div>
+
+<!--  <li><a href="https://github.com/LeoJiaGeng/LeoJiaGeng.github.io" target="_blank">Leo Blog</a> – 个人博客</li>-->
 
 <!-- English Version -->
 <div class="en post-container"">
-<!-- 仿制 3-about 的按钮条 -->
+
 <div class="lang-selector text-center" style="margin-bottom:25px">
   <button class="btn btn-sm btn-outline-primary" id="expandAll-en">All Expand ▼</button>
-  <button class="btn btn-sm btn-outline-primary" id="collapseAll-en">All Collapse ▶</button>
+  <button class="btn btn-sm btn-outline-primary" id="collapseAll-en">All Collapse ▲</button>
 </div>
-  <!-- 个人信息 -->
-  <h2 id="info">Information</h2>
-  <ul>
-    <li>Name: Xiong JiaGeng | Birthday：1997-08 | Tel：155-7221-62286</li>
-    <li>Email: jgxiong@whu.edu.cn | Address：Wuhan University, Wuhan, Hubei, China</li>
-    <li>Research Interest: Computational Chemistry, Chemical Reaction Mechanism, Reaction Mechanics</li>
-  </ul>
-  
-  <!-- 教育背景 -->
-  <h2 id="edu">Education</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-date">2023.09 – 2026.06</div>
-      <div class="timeline-content">
-        <div class="summary" onclick="toggleDetail(this)">
-          <h4>Wuhan University, Physicochemistry, Ph.D.</h4>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="detail-block">
-          Supervisor: Prof. Wang Baoyan<br>
-          Research Topic: The mechanism of synthesis and separation of new environmental halogen gas<br>
-          负责量子化学计算和反应动力学模拟；开发计算化学软件工具和算法；发表SCI论文2篇，协助申请专利1项
-        </div>
+
+<h2 id="info">Basic Information</h2>
+<ul>
+  <li>Name: Jiageng XIONG | Date of Birth: 1997-08 | Tel.: +86-155-7221-6886</li>
+  <li>E-mail: jgxiong@whu.edu.cn | Address: Wuhan University, Wuchang District, Wuhan, China</li>
+  <li>Research Interests: Quantum Chemistry, Chemical Reaction Mechanisms, Reaction Kinetics Theory, Monte-Carlo Simulations, Computational Chemistry, etc.</li>
+  <li>Research Fields: Li-ion Batteries, Zeolite Molecular Sieves, Propellant Compatibility, Al–Li Alloys, Environment-Friendly Insulating Gases, etc.</li>
+  <li>Personal Traits: Passionate about scientific research, fond of programming, enthusiastic in knowledge sharing</li>
+</ul>
+
+<h2 id="edu">Education</h2>
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-date">2023.09 – 2026.06</div>
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4>Wuhan University, Ph.D. in Physical Chemistry</h4>
+        <span class="toggle-icon">▼</span>
       </div>
-    </div>
-  
-    <div class="timeline-item">
-      <div class="timeline-date">2018.09 – 2020.06</div>
-      <div class="timeline-content">
-        <div class="summary" onclick="toggleDetail(this)">
-          <h4>Wuhan University, Physicochemistry, Master.</h4> 
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="detail-block">
-          导师：王宝山 Pro<br>
-          课题：全氟异丁酰胺合成全氟异丁腈的化学反应机理研究<br>
-          硕士论文获武汉大学优秀硕士学位论文奖。
-        </div>
-      </div>
-    </div>
-  
-    <div class="timeline-item">
-      <div class="timeline-date">2014.09 – 2018.06</div>
-      <div class="timeline-content">
-        <div class="summary" onclick="toggleDetail(this)">
-          <h4>Yangtze University, Polymer Materials Chemistry, Bachelor.</h4> 
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="detail-block">
-          Major in Polymer Chemistry, Physicochemistry, Organic Chemistry, Material Science<br>
-          GPA：3.7/4.0 | Ranking ：1/60<br>
-          毕业论文：《高压实密度磷酸铁锂正极材料研究》
-        </div>
+      <div class="detail-block">
+        Supervisor: Prof. Baoshan WANG<br>
+        Project 1: Synthesis, separation and separation mechanism of novel environment-friendly insulating gases<br>
+        Project 2: Neural-network models linking LD/DC/AC breakdown voltages to electrostatic potential descriptors for new eco-friendly insulating gases<br>
+        Project 3: Compatibility mechanism of solid propellant ingredients<br>
+        Project 4: Structures and oxidation mechanisms of Al–Li alloy clusters<br>
+        Responsible for quantum-chemical calculations and reaction-kinetics simulations; development of post-processing tools & algorithms for computational-chemistry packages; 5 SCI papers expected, 1 already published
       </div>
     </div>
   </div>
-  
-  <!-- 工作经历 -->
-  <h2 id="work">Work Experience</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-date">2020.07 – 2023.08</div>
-      <div class="timeline-content">
-        <div class="summary" onclick="toggleDetail(this)">
-          <h4>珠海冠宇电池股份有限公司 – 资深工程师</h4>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="detail-block">
-          负责锂离子电池后端新工艺开发：串联化成技术、单折边点胶工艺；申请专利4项，其中国际专利1项。
-        </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2018.09 – 2020.06</div>
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4>Wuhan University, M.E. in Chemical Engineering</h4>
+        <span class="toggle-icon">▼</span>
       </div>
-    </div>
-  
-    <div class="timeline-item">
-      <div class="timeline-date">2019.03 – 2020.06</div>
-      <div class="timeline-content">
-        <div class="summary" onclick="toggleDetail(this)">
-          <h4>华为技术有限公司 – 嵌入式C软件程序员</h4>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="detail-block">
-          参与新型功能材料的计算设计与模拟；使用分子动力学研究材料性能；参与发表SCI论文1篇。
-        </div>
+      <div class="detail-block">
+        Supervisor: Prof. Baoshan WANG<br>
+        Project 1: Theoretical study on the reaction mechanism of perfluoro-isobutyramide to perfluoro-isobutyronitrile<br>
+        Project 2: Theoretical study on the reaction mechanism between perfluoro-isobutyronitrile and GSH enzyme<br>
+        Responsible for quantum-chemical calculations and reaction-kinetics simulations
       </div>
     </div>
   </div>
-  
-  <!-- 科研经历 -->
-  <h2 id="research">Research</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <div class="summary" onclick="toggleDetail(this)">
-          <h4>新型环保绝缘气体反应机理研究（博士课题）</h4>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="detail-block">
-          采用CCSD(T)/CBS高精度方法研究全氟酮类分解机理；开发神经网络势能面动力学模拟，计算效率提升20倍；成果已申请国家发明专利2项，发表SCI论文3篇。
-        </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2014.09 – 2018.06</div>
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4>Yangtze University, B.E. in Polymer Materials and Engineering</h4>
+        <span class="toggle-icon">▼</span>
       </div>
-    </div>
-  
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <div class="summary" onclick="toggleDetail(this)">
-          <h4>全氟异丁腈合成反应机理研究（硕士课题）</h4>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="detail-block">
-          系统研究全氟异丁酰胺脱水反应路径；采用过渡态理论计算速率常数，误差&lt;15%；提出催化剂设计新策略，实验产率提高30%。
-        </div>
-      </div>
-    </div>
-  
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <div class="summary" onclick="toggleDetail(this)">
-          <h4>机器学习辅助的反应路径预测方法开发</h4>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="detail-block">
-          开发图神经网络算法ReactionGNN，构建10万+有机反应数据集，预测准确率85%，已集成至自研软件ChemAI。
-        </div>
+      <div class="detail-block">
+        Major courses: Polymer Chemistry, Physical Chemistry, Organic Chemistry, C Programming<br>
+        GPA: 3.7/4.0 | Rank: 1/60<br>
+        Thesis: “Study on High Tap-Density LiFePO₄ Cathode Materials”
       </div>
     </div>
   </div>
-  
-  <!-- 论文 / 专利 / 技能 / 获奖 / 开源项目 -->
-  <h2 id="pub">Papers</h2>
-  <ol>
-    <li>Xiong, J.; Wang, B.* et al. <em>JMolecules</em> <strong>2023</strong>, 127, 1234.</li>
-    <li>Xiong, J.; Wang, B.* et al. <em>J. Chem. Phys.</em> <strong>2022</strong>, 156, 234305.</li>
-    <li>Xiong, J.; Li, Y.; Wang, B.* <em>Chin. J. Chem. Phys.</em> <strong>2021</strong>, 34, 567.</li>
-  </ol>
-  
-  <h2 id="patent">patents</h2>
-  <ol>
-    <li>一种环保绝缘气体分解机理的研究方法及系统（已授权）</li>
-    <li>基于图神经网络的化学反应路径预测系统（实审）</li>
-  </ol>
-  
-  <h2 id="skill">Skills</h2>
-  <ul>
-    <li>Quantum Chemistry Software：Gaussian / ORCA / Molpro / VASP</li>
-    <li>Programming：Python（7 years）、C（5 years）、Shell（3 years）、Bash（3 years）</li>
-    <li>Machine Learning：PyTorch、TensorFlow、Scikit-learn</li>
-    <li>Language：Chinese (Mother Tongue)、English (Fluent)、French (Basic)</li>
-  </ul>
-  
-  <h2 id="award">Awards</h2>
-  <ul>
-    <li>2023 博士研究生国家奖学金</li>
-    <li>2022 武汉大学优秀研究生</li>
-    <li>2021 硕士生国家奖学金</li>
-    <li>2020 武汉大学优秀硕士学位论文</li>
-  </ul>
-  
-  <h2 id="project">Projects</h2>
-  <ul>
-    <li><a href="https://github.com/leojiageng/ChemAI" target="_blank">ChemAI</a> – 计算化学与机器学习集成平台</li>
-    <li><a href="https://github.com/leojiageng/ReactionGNN" target="_blank">ReactionGNN</a> – 反应路径预测工具</li>
-    <li><a href="https://github.com/leojiageng/AutoKinetics" target="_blank">AutoKinetics</a> – 自动化反应动力学计算工具</li>
-  </ul>
+</div>
+
+<!-- Research Experience -->
+<h2 id="research">Research Experience</h2>
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4>National Key R&D Program “Study on Molecular Structure and Physicochemical Properties of Novel Environment-Friendly Insulating Gases” (China Electric Power Research Institute) – PhD Project</h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        1. Investigated the theoretical reaction mechanism for synthesizing trifluoromethanesulfonyl fluoride (CF₃SO₂F) at the M062X/6-311++G(d,p) and CBS-QB3 levels.<br>
+        2. Employed the GEMC method to elucidate the theoretical mechanism of separating perfluoro-n-butyronitrile and isobutyronitrile by zeolites with different pore sizes.<br>
+        3. Applied GEMC simulations to study the adsorption of post-discharge impurities from CF₃SO₂F/N₂ mixtures on LTA-3/4/5A and FAU-13X molecular sieves.<br>
+        4. Developed a Matlab-based neural-network potential hyper-parameter optimizer and cross-validation toolkit; constructed NN models correlating LD/DC/AC breakdown voltages with electrostatic potential descriptors for novel eco-friendly insulating gases.<br>
+        5. Implemented Monte-Carlo tools to compute kinetic molecular diameters (Dk) and investigate molecular-sieve adsorption mechanisms.
+      </div>
+    </div>
   </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4>Stability Program “Propellant Component Compatibility / AlLi Alloy” (6th Academy, CASIC) – PhD Project</h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        1. Used DFT to evaluate two-, three-, and four-component compatibility among solid fillers, binders, bonding agents, plasticizers, and curing agents in propellant formulations.<br>
+        2. Predicted single-component decomposition temperatures via quantum-chemical calculations; computed glass-transition temperatures (Tg) and solubility parameters with the COMPASS force field and simulated annealing.<br>
+        3. Employed DFT to explore cluster structures of AlLi alloys with 1–10 % Li content and their oxidation mechanisms with H₂O, LiOH, and Li₂O.<br>
+        4. Performed MD simulations to characterize the structure and function of silane coupling agents coating AlLi alloy cluster surfaces.
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4>National Key R&D Program “Environment-Friendly Pipeline Power Transmission Technology” (China Electric Power Research Institute) – Master Project</h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        1. Elucidated the reaction mechanism for synthesizing perfluoro-isobutyronitrile from perfluoro-isobutyramide, Py, and TFAA in DMF using M062X/6-311++G(d,p), B3LYP, ωB97X-D, and DL-CBS-QB3 methods.<br>
+        2. Investigated the reaction mechanisms of perfluoro-acetonitrile, -propionitrile, -n-butyronitrile, and -isobutyronitrile with GSH enzyme via QM/MM calculations.
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="work">Work Experience</h2>
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-date">2020.07 – 2022.08</div>
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4>Zhuhai CosMX Battery Co., Ltd. – Senior Engineer</h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        Led back-end process development for Li-ion batteries: sealing, formation, second sealing, gluing, sorting, OCV and packaging<br>
+        Pioneered new processes: electromagnetic-thermal sealing, laser sealing, series formation, centrifugal second sealing, single-fold UV gluing, and skip-sorting technology<br>
+        Proficient in complete Li-ion-battery manufacturing for coin, consumer pouch and power cells<br>
+        Four patents filed (one international) and ten co-authored
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2022.11 – 2023.08</div>
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4>Huawei Technologies Co., Ltd. – Embedded C Software Engineer</h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        Designed and implemented communication modules for embedded devices based on GD32 & STM32 MCUs using IAR Embedded Workbench; participated in multiple Modbus and proprietary-protocol projects<br>
+        Independently adapted low-level drivers for USART, SPI, I²C, ADC, timers, Flash, watchdog, etc.<br>
+        Realized a proprietary communication protocol (header + length + command + data + checksum) supporting variable-length frames and full-duplex communication
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="pub">Publications</h2>
+<ol>
+  <li><strong>Xiong, J.</strong>; Wang, B.* et al. <em>Molecules</em> <strong>2024</strong>, 127, 1234.</li>
+  <li>Liu, W.; Song, Y.; Zhang, M.; Xiong, J.; et al. <em>International Journal of Quantum Chemistry</em> <strong>2024</strong>, 156, 234305.</li>
+  <li>Liu, Y.; Zhong, Z.; Yu, X.; Xiong, J.; Liu, S. <em>Molecular Catalysis</em> <strong>2024</strong>, 34, 567.</li>
+</ol>
+
+<h2 id="patent">Patents</h2>
+<ol>
+  <li><strong>XIONG Jiageng</strong>, LIN Yongtao, CHEN Shen, et al. High-pressure-resistant coin-cell top cover design [P]. WO2023186049A1 (<strong>international</strong>)</li>
+  <li><strong>XIONG Jiageng</strong>, YUAN Wenbing, HE Yi, et al. Battery and electronic product [P]. CN202123034558.6</li>
+  <li><strong>XIONG Jiageng</strong>, LIN Yongtao, CHEN Shen, et al. Safety pressure-relief coin-cell top cover design [P]. CN202220736851.2</li>
+  <li>··· ···</li>
+</ol>
+
+<h2 id="skill">Technical Skills</h2>
+<ul>
+  <li>Quantum-chemistry packages: <strong>Gaussian / GROMACS / Materials Studio / ADF</strong> / ORCA / Molpro</li>
+  <li>Programming: <strong>Python (7 yrs)</strong>, C (5 yrs), Shell (3 yrs), Bash (3 yrs), MATLAB (3 yrs)</li>
+  <li>Machine-learning: PyTorch, <strong>Neural Networks</strong>, Scikit-learn</li>
+  <li>Engineering: <strong>Six-Sigma</strong> management tools & theory, <strong>TRIZ</strong> theory</li>
+  <li>Languages: Chinese (native), English (CET-4/6, <strong>IELTS:6</strong> – fluent)</li>
+</ul>
+
+<h2 id="award">Conferences & Awards</h2>
+<ul>
+  <li>2024 Academic Excellence Scholarship (2nd prize)</li>
+  <li>2023 TRIZ Level-I Certificate</li>
+  <li>2021 “CosMX Star” Honorary Title</li>
+  <li>2018 National Encouragement Scholarship</li>
+</ul>
+
+<h2 id="project">Open-Source Projects</h2>
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4><strong>Quantum-Chemistry Toolkit</strong>: small utilities for processing quantum-chemistry outputs / generating input files – 
+          <a href="https://github.com/LeoJiaGeng/JiaGengXiong-Python-Files" target="_blank">View on GitHub(Older Version)</a>
+          <a href="https://github.com/LeoJiaGeng/Quantum_Toolkit" target="_blank">View on GitHub(Plus Version)</a>
+        </h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        PyQt5-based toolkit that extracts all information from Gaussian outputs, monitors eigenvectors, batch-creates inputs and renames files; bilingual GUI<br>
+        Established a Qt Designer GUI → UI.ui → UI.py + business.py workflow to accelerate development<br>
+        Provided batch scripts for conversion and packaging for end-users
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4><strong>Neural-Network Hyper-parameter Optimisation / Cross-Validation</strong>: hyper-parameter optimisation with leave-N-out and Monte-Carlo cross-validation – 
+          <a href="https://github.com/LeoJiaGeng/Matlab_NNtrain" target="_blank">View on GitHub</a>
+        </h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        Built MATLAB Neural-Network hyper-parameter optimiser<br>
+        Implemented leave-N-out and Monte-Carlo cross-validation optimisers<br>
+        Supports multiple objective functions (RMSE, MAE, R², etc.)<br>
+        Supports grid search, random search and other strategies
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-content">
+      <div class="summary" onclick="toggleDetail(this)">
+        <h4><strong>Script Utilities</strong>: Bash / Shell / Python / Perl snippets – <a href="https://github.com/LeoJiaGeng/WH_Univ_N202" target="_blank">View on GitHub</a></h4>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="detail-block">
+        Bash scripts for Python packaging & compression<br>
+        Shell scripts for job submission & transition-state monitoring<br>
+        Perl scripts for batch submission in Materials Studio and report generation
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
 
 <!-- Handle Language Change -->
 <script type="text/javascript">
@@ -418,7 +556,7 @@ header-img: img/post-bg-rwd.jpg
   _render();
 </script>  
 
-<!-- Expand/Collapse JS -->
+<!-- Handle Expand/Collapse -->
 <script>
 /* Collapse All */
 function toggleDetail(summary){
@@ -436,6 +574,7 @@ function setAllDetails(expand){
     if(icon) icon.textContent = expand ? '▲' : '▼';
   });
 }
+
 document.getElementById('expandAll').addEventListener('click', () => setAllDetails(true));
 document.getElementById('collapseAll').addEventListener('click', () => setAllDetails(false));
 document.getElementById('expandAll-en').addEventListener('click', () => setAllDetails(true));
